@@ -1,9 +1,11 @@
-package Ex;
+package ex_popular_group_story;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 public class Select {
     public static void main(String[] args) {
@@ -22,9 +24,15 @@ public class Select {
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while (rs.next()){
-                int id =rs.getInt("id");
+                String name =rs.getString("name");
+                String birth_day =rs.getString("birth_day");
+                String gender =rs.getString("gender");
+                int color_id =rs.getInt("color_id");
                 
-                System.out.print("id = " + id);
+                System.out.print("name = " + name);
+                System.out.print("  birth_day =" + birth_day);
+                System.out.print("  gender =" + gender);
+                System.out.print("  color_id =" + color_id);
                 
                 System.out.println();
             }
