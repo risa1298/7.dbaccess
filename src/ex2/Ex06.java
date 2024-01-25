@@ -5,8 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Ex05 {
-     public static void main(String[] args) {
+public class Ex06 {
+    public static void main(String[] args) {
+    
         String url ="jdbc:postgresql://localhost:5432/student";
         String user ="postgres";
         String password ="postgres";
@@ -17,10 +18,10 @@ public class Ex05 {
 
         try{
             con = DriverManager.getConnection(url,user,password);
-            sql = "delete from members where name in('金子 梨紗','櫻井 翔')";
+            sql = "drop table members;";
             pstmt = con.prepareStatement(sql);
-            int numOfUpdate = pstmt.executeUpdate();
-            System.out.println(numOfUpdate + "件のデータを操作しました");
+            pstmt.executeUpdate();
+            System.out.println("テーブルを削除しました");
 
         }catch(SQLException ex){
             System.err.println("SQL関連のエラーが発生しました");
@@ -41,3 +42,4 @@ public class Ex05 {
         }
     }
 }
+
